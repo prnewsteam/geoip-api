@@ -9,13 +9,12 @@ else
 fi
 
 echo "Create buildx builder ..."
-docker buildx create --use --name geoip-builder node-amd64
-docker buildx create --append --name geoip-builder node-arm64
+docker buildx create --use
 docker context ls
 
 echo "Building buildx image ..."
-docker buildx build \
-    --platform linux/amd64,linux/arm64 ${DOCKER_BUILD_ARGS} \
+docker buildx build ${DOCKER_BUILD_ARGS} \
+    --platform linux/amd64,linux/arm64 \
     --build-arg MAXMIND_LICENSE_KEY=${MAXMIND_LICENSE_KEY} \
     -t observabilitystack/geoip-api:latest \
     -t observabilitystack/geoip-api:$(date +%Y-%V) .
