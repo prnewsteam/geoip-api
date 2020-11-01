@@ -10,7 +10,7 @@ fi
 
 echo "Create buildx builder ..."
 docker buildx create --use
-docker context ls
+docker buildx ls
 
 echo "Building buildx image ..."
 docker buildx build ${DOCKER_BUILD_ARGS} \
