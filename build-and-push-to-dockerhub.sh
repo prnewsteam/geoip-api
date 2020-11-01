@@ -8,12 +8,9 @@ else
     echo "Building multi-arch build but will not push to Docker Hub ..."
 fi
 
-echo "Create buildx builder ..."
-docker buildx create --use
-docker buildx ls
-
 echo "Building buildx image ..."
 docker buildx build ${DOCKER_BUILD_ARGS} \
+    --progress plain
     --platform linux/amd64,linux/arm64 \
     --build-arg MAXMIND_LICENSE_KEY=${MAXMIND_LICENSE_KEY} \
     -t observabilitystack/geoip-api:latest \
