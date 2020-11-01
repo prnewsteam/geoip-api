@@ -10,7 +10,7 @@ fi
 
 echo "Building buildx image ..."
 docker buildx build ${DOCKER_BUILD_ARGS} \
-    --progress plain
+    --progress plain \
     --platform linux/amd64,linux/arm64 \
     --build-arg MAXMIND_LICENSE_KEY=${MAXMIND_LICENSE_KEY} \
     -t observabilitystack/geoip-api:latest \
