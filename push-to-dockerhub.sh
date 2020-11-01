@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 if [ "${TRAVIS_PULL_REQUEST_BRANCH:-$TRAVIS_BRANCH}" == "master" ]; then
     docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
