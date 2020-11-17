@@ -13,6 +13,11 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
+        
+        <!--
+            Updating to 2.3.5 errors in https://www.gitmemory.com/issue/spring-projects-experimental/spring-graalvm-native/332/716874128
+            Updating to 2.4.0 breaks /actuator/prometheus
+        -->
         <version>2.3.4.RELEASE</version>
     </parent>
 
@@ -166,7 +171,7 @@
                         <version>20.2.0</version>
                         <configuration>
                             <buildArgs>
-                                -J-Xmx4G 
+                                -J-Xmx2G
                                 -H:+TraceClassInitialization 
                                 -H:+ReportExceptionStackTraces
                                 -H:ReflectionConfigurationFiles=/build/src/main/resources/reflection-config.json
