@@ -6,13 +6,13 @@ import com.s24.geoip.GeolocationProvider;
 import java.net.InetAddress;
 import java.util.Optional;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.google.common.net.InetAddresses;
-import org.junit.Before;
-import org.junit.Test;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -31,7 +31,7 @@ public class GeoIpRestControllerTest {
     private GeolocationProvider provider;
     private GeoIpRestController restController;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         provider = mock(GeolocationProvider.class);
         when(provider.lookup(eq(IPV4_ADDR))).thenReturn(Optional.of(new GeoIpEntry.Builder().setCountry("ZZ").build()));

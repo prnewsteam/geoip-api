@@ -19,8 +19,9 @@ import com.maxmind.geoip2.record.MaxMind;
 import com.maxmind.geoip2.record.Postal;
 import com.maxmind.geoip2.record.Subdivision;
 import com.maxmind.geoip2.record.Traits;
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -33,7 +34,7 @@ public class MaxmindGeolocationDatabaseTest {
     private DatabaseReader ispDatabaseReader = Mockito.mock(DatabaseReader.class);
     private MaxmindGeolocationDatabase db = new MaxmindGeolocationDatabase(cityDatabaseReader, ispDatabaseReader);
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         List<String> locales = Collections.singletonList("DE");
         Country country = new Country(locales, 0, 0, "DE", ImmutableMap.of("DE", "Deutschland"));
