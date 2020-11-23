@@ -1,5 +1,5 @@
 # build stage
-FROM oracle/graalvm-ce:20.2.0-java11 AS builder
+FROM oracle/graalvm-ce:20.3.0-java11 AS builder
  
 ADD . /build
 WORKDIR /build

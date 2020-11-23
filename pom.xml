@@ -155,11 +155,14 @@
                                 -J-Xmx3G
                                 --initialize-at-build-time=org.springframework.boot.logging.logback.LogbackLoggingSystem$Factory
                                 --initialize-at-build-time=org.springframework.boot.logging.java.JavaLoggingSystem$Factory
-                                -H:+TraceClassInitialization 
+                                --report-unsupported-elements-at-runtime
+                                --no-fallback
+                                --allow-incomplete-classpath
                                 -H:+ReportExceptionStackTraces
                                 -H:ReflectionConfigurationFiles=/build/src/main/resources/reflection-config.json
                                 -Dspring.graal.remove-unused-autoconfig=true 
-                                -Dspring.graal.remove-yaml-support=true
+                                -Dspring.graal.remove-yaml-support=false
+                                -Dspring.spel.ignore=true
                             </buildArgs>
                             <imageName>${project.artifactId}</imageName>
                         </configuration>

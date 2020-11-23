@@ -20,7 +20,6 @@ function test_url {
 }
 
 test_url "http://localhost:18080/actuator"
-test_url "http://localhost:18080/actuator"
 test_url "http://localhost:18080/actuator/health"
 test_url "http://localhost:18080/actuator/prometheus"
 test_url "http://localhost:18080/$(curl -s https://ifconfig.me/ip)"
